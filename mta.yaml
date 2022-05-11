@@ -1,4 +1,3 @@
----
 _schema-version: '3.1'
 ID: risk-management
 version: 1.0.0
@@ -37,6 +36,32 @@ modules:
     requires:
       - name: risk-management-db
 
+  - name: risk-management-approuter
+    type: nodejs
+    path: approuter
+    requires:
+      - name: risk-management-uaa
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: true
+          name: srv-binding
+          url: "~{srv-url}"
+    build-parameters:
+        requires:
+         - name: risk-management-app
+           artifacts:
+           - ./*
+           target-path: resources
+    # -------------------- UI -----------------------------------
+  - name: risk-management-app
+      # ------------------------------------------------------------
+    type: html5
+    path: app
+    build-parameters:
+      supported-platforms: []
+
 resources:
   - name: risk-management-db
     type: com.sap.xs.hdi-container
@@ -55,6 +80,15 @@ resources:
       config:
         xsappname: risk-management-${org}-${space}
         tenant-mode: dedicated
+        role-collections:
+          - name: 'RiskManager-${space}'
+            description: Manage Risks
+            role-template-references:
+            - $XSAPPNAME.RiskManager
+          - name: 'RiskViewer-${space}'
+            description: View Risks
+            role-template-references:
+            - $XSAPPNAME.RiskViewer
 
   - name: risk-management-destination-service
     type: org.cloudfoundry.managed-service
