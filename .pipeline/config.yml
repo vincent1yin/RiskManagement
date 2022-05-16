@@ -9,7 +9,6 @@
 ### 
 
 ### General project setup
----
  general:
     pipeline: "sap-cloud-sdk" 
     buildTool: "mta"
