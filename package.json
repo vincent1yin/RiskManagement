@@ -11,12 +11,14 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "5.1.5",
+    "@sap/cds-compiler": "1.21.1",
     "@sap/cds-dk": "4.1.5",
     "@sap/xsenv": "^3.2.2",
     "@sap/xssec": "^3.2.13",
     "express": "^4",
     "hdb": "^0.18.3",
-    "passport": "^0.5.2"
+    "passport": "^0.5.2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.20"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.100.1",
