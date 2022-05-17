@@ -9,28 +9,28 @@
 ### 
 
 ### General project setup
- general:
-    pipeline: "sap-cloud-sdk" 
-    buildTool: "mta"
-    verbose:   true
- stages:
-    Build:
-       mavenExecuteStaticCodeChecks: false
-       npmExecuteLint: false
-    Additional Unit Tests:
-       npmExecuteScripts: false
-       karmaExecuteTests: false
-    Release:
-       cloudFoundryDeploy: true
-       tmsUpload:  false
- steps:
-    cloudFoundryDeploy:
-      cloudFoundry: 
+general:
+  pipeline: "sap-cloud-sdk" 
+  buildTool: "mta"
+  verbose:   true
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Release:
+    cloudFoundryDeploy: true
+    tmsUpload:  false
+steps:
+  cloudFoundryDeploy:
+    cloudFoundry: 
       apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
       org: "1e4e368ctrial"
       space: "dev"
       credentialsId: "cfdeploy"
       appName: ""
-      mtaDeployParameters: "-f --version-rule ALL"
-    artifactPrepareVersion:
-      versioningType: "cloud_noTag"
+    mtaDeployParameters: "-f --version-rule ALL"
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
