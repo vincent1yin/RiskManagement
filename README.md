@@ -26,6 +26,8 @@ git checkout <branch>
 ## Known Issues
 
 
+
+
 You can find the known issues [here](https://github.com/SAP-samples/extension-suite-learning-journey/issues).
 
 We rather recommend to use our [SAP BTP Learning Group](https://groups.community.sap.com/t5/sap-btp-learning/gh-p/SAP-BTP-Learning).
