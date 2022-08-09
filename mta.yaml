@@ -1,6 +1,6 @@
 _schema-version: '3.1'
 ID: risk-management
-version: 1.0.0
+version: 2.0.0
 description: "Template for the the SAP Extension Suite Learning Journey"
 parameters:
   enable-parallel-deployments: true
@@ -26,6 +26,7 @@ modules:
     requires:
       - name: risk-management-db
       - name: risk-management-uaa
+      - name: jobScheduler
       - name: risk-management-destination-service
 
   - name: risk-management-db-deployer
@@ -97,3 +98,12 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+
+  - name: jobScheduler
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: jobscheduler
+      service-plan: lite
+      service-name: jobScheduler
+      config:
+        enable-xsuaa-support: true

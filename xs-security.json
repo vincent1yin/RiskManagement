@@ -10,7 +10,7 @@
       "name": "$XSAPPNAME.RiskManager",
       "description": "RiskManager"
     }
-  ],
+],
   "attributes": [],
   "role-templates": [
     {
